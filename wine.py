@@ -90,9 +90,11 @@ if (selected == 'Wine_Quality_Prediction'):
     # creating a button for Prediction
     
     if st.button('wine Test Result'):
-        Wine_Quality_Prediction = wine_model.predict([fixed_acidity,volatile_acidity,citric_acid,residual_sugar,chlorides,free_sulfur_dioxide,total_sulfur_dioxide,density,pH,sulphates,alcohol])
-        reshaped_data = np.array(Wine_Quality_Prediction).reshape(1, -1)
+        input_data = [fixed_acidity,volatile_acidity,citric_acid,residual_sugar,chlorides,free_sulfur_dioxide,total_sulfur_dioxide,density,pH,sulphates,alcohol]
+        reshaped_data = np.array(input_data).reshape(1, -1)
         Wine_Quality_Prediction = wine_model.predict(reshaped_data)
+        #Wine_Quality_Prediction = wine_model.predict([fixed_acidity,volatile_acidity,citric_acid,residual_sugar,chlorides,free_sulfur_dioxide,total_sulfur_dioxide,density,pH,sulphates,alcohol])
+       
         if (Wine_Quality_Prediction[0] == 1):
           Wine_Quality_ = 'Good Quality Wine'
         else:
