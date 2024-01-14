@@ -4,6 +4,20 @@
 import pickle
 import streamlit as st
 from streamlit_option_menu import option_menu
+import numpy as np
+
+# Assuming your input data is a list or array
+input_data = [7.4, 0.7, 0.0, 1.9, 0.076, 11.0, 34.0, 0.9978, 3.51, 0.56, 9.4]
+
+# Reshape the data to a 2D array
+reshaped_data = np.array(input_data).reshape(1, -1)
+
+# Now you can use the reshaped data for prediction
+Wine_Quality_Prediction = wine_model.predict(reshaped_data)
+
+
+
+
 
 
 # loading the saved models
@@ -77,7 +91,8 @@ if (selected == 'Wine_Quality_Prediction'):
     
     if st.button('wine Test Result'):
         Wine_Quality_Prediction = wine_model.predict([fixed_acidity,volatile_acidity,citric_acid,residual_sugar,chlorides,free_sulfur_dioxide,total_sulfur_dioxide,density,pH,sulphates,alcohol])
-        
+        reshaped_data = np.array(Wine_Quality_Prediction).reshape(1, -1)
+        Wine_Quality_Prediction = wine_model.predict(reshaped_data)
         if (Wine_Quality_Prediction[0] == 1):
           Wine_Quality_ = 'Good Quality Wine'
         else:
