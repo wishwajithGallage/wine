@@ -7,13 +7,13 @@ from streamlit_option_menu import option_menu
 import numpy as np
 
 # Assuming your input data is a list or array
-input_data = [7.4, 0.7, 0.0, 1.9, 0.076, 11.0, 34.0, 0.9978, 3.51, 0.56, 9.4]
+#input_data = [7.4, 0.7, 0.0, 1.9, 0.076, 11.0, 34.0, 0.9978, 3.51, 0.56, 9.4]
 
 # Reshape the data to a 2D array
-reshaped_data = np.array(input_data).reshape(1, -1)
+#reshaped_data = np.array(input_data).reshape(1, -1)
 
 # Now you can use the reshaped data for prediction
-Wine_Quality_Prediction = wine_model.predict(reshaped_data)
+#Wine_Quality_Prediction = wine_model.predict(reshaped_data)
 
 
 
